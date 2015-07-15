@@ -42,13 +42,4 @@ public class Student {
     public void setBirth(LocalDate birth) {
         this.birth = birth;
     }
-
-
-//	public Date getBirth() {
-//		return birth;
-//	}
-//
-//	public void setBirth(Date birth) {
-//		this.birth = birth;
-//	}
 }
