@@ -1,7 +1,8 @@
 package lesson04.studentlist;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-import java.time.* ;
 
 public class MyClass {
 
@@ -9,14 +10,17 @@ public class MyClass {
 
         StudentList sl = new StudentList();
         Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < sl.getLength(); i++) {
 
-        for (int i = 0; i < sl.getLength(); i++){
-            System.out.println("Please enter the name: ");
+            //Enter name, surname, date
+           /* System.out.println("Please enter the name: ");
             String name = scanner.nextLine();
             System.out.println("Please enter the surname: ");
-            String surname = scanner.nextLine();
-            sl.add(new Student(name, surname, LocalDate.of(2011, 11, 10)));
-            //sl.add(new Student(name, surname, new Date(2014 - 1900, 3, 28)));
+            String surname = scanner.nextLine();*/
+            System.out.println("Please enter the date (year, month, day): ");
+            DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd, MM, yyyy");
+            String date = scanner.nextLine();
+            sl.add(new Student("name", "surname", LocalDate.parse(date, sdf)));
         }
         System.out.println("");
         System.out.println(sl.listToString());
@@ -24,7 +28,18 @@ public class MyClass {
         System.out.println("");
         for (int i = 0; i < 3; i++) {
             System.out.println(sl.get(i).getName() + " " + sl.get(i).getSurname() + " " + sl.get(i).getBirth());
+            System.out.println(sl.get(i).getBirth());
             System.out.println("");
         }
+
+        //We got below search by name, surname and date
+		/*int n = sl.findName("Seva");
+        System.out.println(sl.get(n).getBirth());
+
+		int n1 = sl.findSurname("Bobov");
+		System.out.println(sl.get(n1).getBirth());
+
+		int n2 = sl.findDate("08/02/1979");
+		System.out.println(sl.get(n2).getSurname());*/
     }
 }

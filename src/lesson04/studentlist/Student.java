@@ -2,10 +2,12 @@ package lesson04.studentlist;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Student {
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    //SimpleDateFormat sdf = new SimpleDateFormat("yyyy, MM, dd");
+    DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd, MM, yyyy");
     private String name, res;
     private String surname;
     private LocalDate birth;
@@ -32,7 +34,6 @@ public class Student {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
 
     public String getBirth() {
         return res;
