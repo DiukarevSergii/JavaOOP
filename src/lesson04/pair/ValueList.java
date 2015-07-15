@@ -18,4 +18,4 @@ public class ValueList {
             throw new NullException("wrong point");
     }
 }
-//end0
+//
