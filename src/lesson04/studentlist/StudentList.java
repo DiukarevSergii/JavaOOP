@@ -59,7 +59,7 @@ public class StudentList {
 
     public void setVoid (String s) throws VoidException{
         if (s.equals(""))
-            throw new VoidException("Format is incorrect! Please, try again!");
+            throw new VoidException("Format is incorrect! Please, try again!" + "\n");
     }
 
 }

@@ -14,20 +14,26 @@ public class MyClass {
 
         String name = "";
         String surname = "";
-        boolean b = false;
+        boolean b;
         LocalDate forLoop = null;
 
         for (int i = 0; i < sl.getLength(); i++) {
             b = false;
             //Enter name, surname, date
-            try {
-                System.out.println("Please enter the name: ");
-                name = scanner.nextLine();
-                System.out.println("Please enter the surname: ");
-                surname = scanner.nextLine();
-            } catch (VoidException s){
-                System.out.println(s.getMessage());
+            while (!b) {
+                try {
+                    System.out.println("Please enter the name: ");
+                    name = scanner.nextLine();
+                    sl.setVoid(name);
+                    System.out.println("Please enter the surname: ");
+                    surname = scanner.nextLine();
+                    sl.setVoid(surname);
+                    b = true;
+                } catch (VoidException s) {
+                    System.out.println(s.getMessage());
+                }
             }
+            b = false;
             while (!b) {
                 try {
                     System.out.println("Please enter the date (dd, MM, yyyy): ");
@@ -36,7 +42,6 @@ public class MyClass {
                     b = true;
                 } catch (DateTimeParseException d) {
                     System.out.println("Format is incorrect! Please, try again!");
-                    b = false;
                 }
             }
             sl.add(new Student(name, surname, forLoop));
@@ -52,8 +57,11 @@ public class MyClass {
             int findNumberOfDate = sl.findDate(LocalDate.parse("08, 02, 1979", dtf));
             System.out.println(sl.get(findNumberOfDate).getSurname());
         } catch (NullPointerException n) {
-            System.out.println("That date does not exist!");
+            System.out.println("\n" + "That date does not exist!");
         }
+
+        int n = sl.findName("Seva");
+        System.out.println(sl.get(n).getBirth());
 
         //We got below search by name, surname and date
         /*int n = sl.findName("Seva");
