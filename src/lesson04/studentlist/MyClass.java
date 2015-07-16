@@ -19,6 +19,7 @@ public class MyClass {
 
         for (int i = 0; i < sl.getLength(); i++) {
             b = false;
+
             //Enter name, surname, date
             while (!b) {
                 try {
@@ -34,6 +35,7 @@ public class MyClass {
                 }
             }
             b = false;
+
             while (!b) {
                 try {
                     System.out.println("Please enter the date (dd, MM, yyyy): ");
