@@ -2,44 +2,67 @@ package lesson04.studentlist;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class MyClass {
 
     public static void main(String[] args) {
-
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(("dd, MM, yyyy"));
         StudentList sl = new StudentList();
         Scanner scanner = new Scanner(System.in);
+
+        String name = "";
+        String surname = "";
+        boolean b = false;
+        LocalDate forLoop = null;
+
         for (int i = 0; i < sl.getLength(); i++) {
-
+            b = false;
             //Enter name, surname, date
-           /* System.out.println("Please enter the name: ");
-            String name = scanner.nextLine();
-            System.out.println("Please enter the surname: ");
-            String surname = scanner.nextLine();*/
-            System.out.println("Please enter the date (year, month, day): ");
-            DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd, MM, yyyy");
-            String date = scanner.nextLine();
-            sl.add(new Student("name", "surname", LocalDate.parse(date, sdf)));
+            try {
+                System.out.println("Please enter the name: ");
+                name = scanner.nextLine();
+                System.out.println("Please enter the surname: ");
+                surname = scanner.nextLine();
+            } catch (VoidException s){
+                System.out.println(s.getMessage());
+            }
+            while (!b) {
+                try {
+                    System.out.println("Please enter the date (dd, MM, yyyy): ");
+                    String date = scanner.nextLine();
+                    forLoop = LocalDate.parse(date, dtf);
+                    b = true;
+                } catch (DateTimeParseException d) {
+                    System.out.println("Format is incorrect! Please, try again!");
+                    b = false;
+                }
+            }
+            sl.add(new Student(name, surname, forLoop));
         }
-        System.out.println("");
-        System.out.println(sl.listToString());
+        System.out.println("\n" + sl.listToString() + "\n");
 
-        System.out.println("");
-        for (int i = 0; i < 3; i++) {
-            System.out.println(sl.get(i).getName() + " " + sl.get(i).getSurname() + " " + sl.get(i).getBirth());
-            System.out.println(sl.get(i).getBirth());
-            System.out.println("");
+        for (int i = 0; i < sl.getLength(); i++) {
+            System.out.println(sl.get(i).getName() + " " + sl.get(i).getSurname() + " "
+                    + dtf.format(sl.get(i).getBirth()));
+        }
+
+        try {
+            int findNumberOfDate = sl.findDate(LocalDate.parse("08, 02, 1979", dtf));
+            System.out.println(sl.get(findNumberOfDate).getSurname());
+        } catch (NullPointerException n) {
+            System.out.println("That date does not exist!");
         }
 
         //We got below search by name, surname and date
-		/*int n = sl.findName("Seva");
+        /*int n = sl.findName("Seva");
         System.out.println(sl.get(n).getBirth());
 
 		int n1 = sl.findSurname("Bobov");
 		System.out.println(sl.get(n1).getBirth());
 
-		int n2 = sl.findDate("08/02/1979");
-		System.out.println(sl.get(n2).getSurname());*/
+		int findNumberOfDate = sl.findDate(LocalDate.parse("08, 02, 1979", dtf));
+        System.out.println(sl.get(findNumberOfDate).getSurname());*/
     }
 }

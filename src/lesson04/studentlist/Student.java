@@ -1,13 +1,9 @@
 package lesson04.studentlist;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Student {
-    //SimpleDateFormat sdf = new SimpleDateFormat("yyyy, MM, dd");
-    DateTimeFormatter sdf = DateTimeFormatter.ofPattern("dd, MM, yyyy");
+
     private String name, res;
     private String surname;
     private LocalDate birth;
@@ -16,7 +12,6 @@ public class Student {
         this.name = name;
         this.surname = surname;
         this.birth = birth;
-        res = sdf.format(birth);
     }
 
     public String getName() {
@@ -35,8 +30,8 @@ public class Student {
         this.surname = surname;
     }
 
-    public String getBirth() {
-        return res;
+    public LocalDate getBirth() {
+        return birth;
     }
 
     public void setBirth(LocalDate birth) {

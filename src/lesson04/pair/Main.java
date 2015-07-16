@@ -10,9 +10,7 @@ public class Main {
         for (int i = 0; i < text.length; i++) {
             v1.add(new Value(text[i].split("=")));
         }
-
         try {
-
             v1.setNull(v1.get(1));
 
         } catch (NullException e){

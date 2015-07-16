@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 public class StudentList {
-    private Student[] list = new Student[3];
+    private Student[] list = new Student[2];
     private int p = 0;
 
     public void add(Student s) {
@@ -15,17 +15,19 @@ public class StudentList {
         return list.length;
     }
 
-    public void delete(int n){
+    public void delete(int n) {
         list[n] = null;
     }
 
     public Student get(int n) {
-        return list[n];
+        if (n >= 0 && n < list.length) {
+            return list[n];
+        }
+        return null;
     }
 
     public String listToString() {
-        String i = Arrays.toString(list);
-        return  i;
+        return Arrays.toString(list);
     }
 
     public int findName(String name) {
@@ -46,15 +48,18 @@ public class StudentList {
         return -1;
     }
 
-    public int findDate(String res) {
+    public int findDate(LocalDate date) {
         for (int i = 0; i < p; i++) {
-            if (list[i].getBirth().equalsIgnoreCase(res))
+            if (list[i].getBirth().equals(date))
                 return i;
         }
 
         return -1;
     }
 
-
+    public void setVoid (String s) throws VoidException{
+        if (s.equals(""))
+            throw new VoidException("Format is incorrect! Please, try again!");
+    }
 
 }
