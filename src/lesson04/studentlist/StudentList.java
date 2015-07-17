@@ -67,6 +67,4 @@ public class StudentList{
         if (s.equals(""))
             throw new VoidException("Format is incorrect! Please, try again!" + "\n");
     }
-
-
 }
