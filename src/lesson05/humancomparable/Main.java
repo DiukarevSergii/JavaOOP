@@ -7,7 +7,7 @@ public class Main {
         Human[] list = {
                 new Human(40), new Human(20), new Human(3), new Human(7)
         };
-        Arrays.sort(list); // !!!!
+        Arrays.sort(list);
         for (Human h : list)
             System.out.println(h.getAge());
     }

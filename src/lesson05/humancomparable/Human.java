@@ -18,6 +18,6 @@ class Human implements Comparable {
         else if (age > h.age)
             return 1;
         else
-            return 0; // make compiler happy
+            return 0;
     }
 }
