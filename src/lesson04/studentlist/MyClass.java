@@ -54,18 +54,38 @@ public class MyClass {
             System.out.println(sl.get(i).getName() + " " + sl.get(i).getSurname() + " "
                     + dtf.format(sl.get(i).getBirth()));
         }
+        //Function delete
+        System.out.println("Do you want delete any point? (Yes/No)");
+        String answer = scanner.nextLine();
 
-        try {
-            int findNumberOfDate = sl.findDate(LocalDate.parse("08, 02, 1979", dtf));
-            System.out.println(sl.get(findNumberOfDate).getSurname());
-        } catch (NullPointerException n) {
-            System.out.println("\n" + "That date does not exist!");
+        if (answer.equalsIgnoreCase("yes")) {
+            sl.delete(1);
+        }
+        //---
+
+        System.out.println("\n" + sl.listToString() + "\n");
+        for (int i = 0; i < sl.getLength(); i++) {
+            System.out.println(sl.get(i).getName() + " " + sl.get(i).getSurname() + " "
+                    + dtf.format(sl.get(i).getBirth()));
         }
 
-        int n = sl.findName("Seva");
-        System.out.println(sl.get(n).getBirth());
-
         //We got below search by name, surname and date
+        System.out.println("Do you want to use the search function by name, surname or birth date? (Yes/No)");
+        answer = scanner.nextLine();
+
+        if (answer.equalsIgnoreCase("yes")) {
+            try {
+                int findNumberOfDate = sl.findDate(LocalDate.parse("08, 02, 1979", dtf));
+                System.out.println(sl.get(findNumberOfDate).getSurname());
+            } catch (NullPointerException n) {
+                System.out.println("\n" + "That date does not exist!");
+            }
+
+
+            int n = sl.findName("Seva");
+            System.out.println(sl.get(n).getBirth());
+
+
         /*int n = sl.findName("Seva");
         System.out.println(sl.get(n).getBirth());
 
@@ -74,5 +94,9 @@ public class MyClass {
 
 		int findNumberOfDate = sl.findDate(LocalDate.parse("08, 02, 1979", dtf));
         System.out.println(sl.get(findNumberOfDate).getSurname());*/
+        } else if (answer.equalsIgnoreCase("no")) {
+            System.out.println("Thank you, sir, that you was with us! See you later!");
+        } else
+            System.out.println("You answer is incorrect! Please reload the program.");
     }
 }

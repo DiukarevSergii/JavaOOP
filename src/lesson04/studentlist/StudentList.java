@@ -3,8 +3,8 @@ package lesson04.studentlist;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-public class StudentList {
-    private Student[] list = new Student[2];
+public class StudentList{
+    private Student[] list = new Student[5];
     private int p = 0;
 
     public void add(Student s) {
@@ -16,7 +16,13 @@ public class StudentList {
     }
 
     public void delete(int n) {
-        list[n] = null;
+        if (n < 0 || n >= list.length)
+            return; // index out of bounds
+
+        Student [] listNew = new Student[list.length - 1];
+        System.arraycopy(list, 0, listNew, 0, n);
+        System.arraycopy(list, n + 1, listNew, n, listNew.length - n);
+        list = listNew;
     }
 
     public Student get(int n) {
@@ -61,5 +67,6 @@ public class StudentList {
         if (s.equals(""))
             throw new VoidException("Format is incorrect! Please, try again!" + "\n");
     }
+
 
 }
