@@ -5,6 +5,7 @@ public class Triangle extends Figure {
     public Triangle(int height, int width) {
         this.height = height;
         this.width = width;
+        this.squar = this.getSquar();
     }
 
     @Override
