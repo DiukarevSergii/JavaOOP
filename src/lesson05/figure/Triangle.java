@@ -2,9 +2,9 @@ package lesson05.figure;
 
 public class Triangle extends Figure {
 
-    protected double a;
-    protected double b;
-    protected double c;
+    private double a;
+    private double b;
+    private double c;
 
     public Triangle(double a, double b, double c) {
         this.a = a;

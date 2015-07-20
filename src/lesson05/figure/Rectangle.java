@@ -1,8 +1,8 @@
 package lesson05.figure;
 
 public class Rectangle extends Figure {
-    protected double height;
-    protected double width;
+    private double height;
+    private double width;
 
     public Rectangle(int height, int width) {
         this.height = height;
