@@ -2,12 +2,13 @@ package lesson05.figure;
 
 public class Triangle extends Figure {
 
-    public Triangle(int height, int width, int radius) {
-        super(height, width, radius);
+    public Triangle(int height, int width) {
+        this.height = height;
+        this.width = width;
     }
 
     @Override
     public double getSquar() {
-        return super.squar = 0.5 * height * width;
+        return squar = 0.5 * this.height * this.width;
     }
 }

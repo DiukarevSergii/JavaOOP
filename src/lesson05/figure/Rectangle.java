@@ -2,12 +2,13 @@ package lesson05.figure;
 
 public class Rectangle extends Figure {
 
-    public Rectangle(int height, int width, int radius) {
-        super(height, width, radius);
+    public Rectangle(int height, int width) {
+        this.height = height;
+        this.width = width;
     }
 
     @Override
     public double getSquar() {
-        return super.squar = height * width;
+        return squar = this.height * this.width;
     }
 }

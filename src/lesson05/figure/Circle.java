@@ -2,12 +2,12 @@ package lesson05.figure;
 
 public class Circle extends Figure {
 
-    public Circle(int height, int width, int radius) {
-        super(height, width, radius);
+    public Circle(int radius) {
+        this.radius = radius;
     }
 
     @Override
     public double getSquar() {
-        return super.squar = Math.PI * (radius * radius);
+        return squar = Math.PI * (this.radius * this.radius);
     }
 }

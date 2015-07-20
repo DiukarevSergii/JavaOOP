@@ -7,15 +7,7 @@ public abstract class Figure implements Comparable {
     protected int radius;
     protected double squar;
 
-    public Figure (int height, int width, int radius){
-        this.height = height;
-        this.width = width;
-        this.radius = radius;
-    }
-
-    public double getSquar(){
-        return squar;
-    }
+    public abstract double getSquar();
 
     @Override
     public int compareTo(Object another) {
