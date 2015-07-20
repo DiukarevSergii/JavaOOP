@@ -2,6 +2,9 @@ package lesson05.figure;
 
 public class Triangle extends Figure {
 
+    protected double height;
+    protected double width;
+
     public Triangle(int height, int width) {
         this.height = height;
         this.width = width;

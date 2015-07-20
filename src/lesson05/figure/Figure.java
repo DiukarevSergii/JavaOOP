@@ -2,9 +2,6 @@ package lesson05.figure;
 
 public abstract class Figure implements Comparable {
 
-    protected int height;
-    protected int width;
-    protected int radius;
     protected double squar;
 
     public abstract double getSquar();
@@ -12,11 +9,11 @@ public abstract class Figure implements Comparable {
     @Override
     public int compareTo(Object another) {
         Figure figure = (Figure) another;
-        if (squar < figure.squar)
+        if (squar < figure.getSquar())
             return -1;
-        else if (squar == figure.squar)
+        else if (squar == figure.getSquar())
             return 0;
-        else if (squar > figure.squar)
+        else if (squar > figure.getSquar())
             return 1;
         else
             return 0;
