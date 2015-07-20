@@ -5,7 +5,7 @@ public abstract class Figure implements Comparable {
     protected int height;
     protected int width;
     protected int radius;
-    private double squar;
+    protected double squar;
 
     public Figure (int height, int width, int radius){
         this.height = height;
