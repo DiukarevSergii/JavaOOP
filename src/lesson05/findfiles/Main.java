@@ -1,11 +1,15 @@
 package lesson05.findfiles;
 
+import util.Constants;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
+
+    private static final String filePath = Constants.FILE_PATH_LESSON05_FINDFILES;
 
     private static void findFiles(ListFiles [] listFiles, ArrayList<String> list) throws IOException {
 
@@ -21,7 +25,7 @@ public class Main {
     }
     public static void main(String[] args) {
         ListFiles [] listFiles = {
-                new ListFiles("c:\\", ".txt"),
+                new ListFiles(filePath, ".txt"),
                 new ListFiles("c:\\", ".xt"),
                 new ListFiles("d:\\", ".docx")};
 
