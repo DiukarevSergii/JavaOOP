@@ -25,7 +25,7 @@ public class Replacement {
             source = source.replace("Hello", "1234");
 
             System.out.println(source);
-
+            // Write the file.
             char buffer[] = new char[source.length()];
             source.getChars(0, source.length(), buffer, 0);
 
