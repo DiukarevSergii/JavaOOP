@@ -33,11 +33,9 @@ public class Replacement {
                 for (int i = 0; i < buffer.length; i++) {
                     fw1.write(buffer[i]);
                 }
-                fw1.close();
             } catch (IOException e) {
                 System.out.println("An I/O Error Occured");
             }
-            reader.close();
         } catch (IOException e) {
             System.out.println("I/O Error: " + e);
         }
