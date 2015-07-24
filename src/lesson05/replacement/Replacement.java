@@ -26,8 +26,7 @@ public class Replacement {
 
             System.out.println(source);
             // Write the file.
-            char buffer[] = new char[source.length()];
-            source.getChars(0, source.length(), buffer, 0);
+            char []buffer = source.toCharArray();
 
             try (FileWriter fw1 = new FileWriter(fromFile)) {
                 for (int i = 0; i < buffer.length; i++) {
