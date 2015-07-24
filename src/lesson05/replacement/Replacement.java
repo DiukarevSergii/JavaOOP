@@ -16,7 +16,7 @@ public class Replacement {
         try (FileReader reader = new FileReader(fromFile)) {
             int c;
 
-            // Read and display the file.
+            //Read and display the file.
             while ((c = reader.read()) != -1) {
                 source += String.valueOf((char) c);
             }
@@ -25,7 +25,7 @@ public class Replacement {
             source = source.replace("Hello", "1234");
 
             System.out.println(source);
-            // Write the file.
+            //Write the file.
             char []buffer = source.toCharArray();
 
             try (FileWriter fw1 = new FileWriter(fromFile)) {
