@@ -1,7 +1,11 @@
 package lesson05.copyinnewdir;
 
 import util.Constants;
-import java.io.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class CopyInNewDir {
@@ -52,7 +56,7 @@ public class CopyInNewDir {
 
         try {
             for (int i = 0; i < list.size(); i++) {
-                copyFile(oldFilePath+ "/" + list.get(i), newFilePath + "/" + list.get(i));
+                copyFile(oldFilePath + "/" + list.get(i), newFilePath + "/" + list.get(i));
             }
 
         } catch (IOException e) {
