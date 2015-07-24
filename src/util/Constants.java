@@ -1,8 +1,5 @@
 package util;
 
-/**
- * @author Alexander Tyshchenko.
- */
 public interface Constants {
 
     String FILE_PATH_LESSON05_FINDFILES = "JavaOOP/resources";
