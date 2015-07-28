@@ -25,18 +25,19 @@ public class Replacement {
             source = source.replace("Hello", "1234");
 
             System.out.println(source);
-            //Write the file.
-            char []buffer = source.toCharArray();
-
-            try (FileWriter fw1 = new FileWriter(fromFile)) {
-                for (int i = 0; i < buffer.length; i++) {
-                    fw1.write(buffer[i]);
-                }
-            } catch (IOException e) {
-                System.out.println("An I/O Error Occured");
-            }
         } catch (IOException e) {
             System.out.println("I/O Error: " + e);
         }
+        //Write the file.
+        char[] buffer = source.toCharArray();
+
+        try (FileWriter fw1 = new FileWriter(fromFile)) {
+            for (int i = 0; i < buffer.length; i++) {
+                fw1.write(buffer[i]);
+            }
+        } catch (IOException e) {
+            System.out.println("An I/O Error Occured");
+        }
+
     }
 }
