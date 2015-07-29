@@ -1,4 +1,4 @@
-package lesson06.threadgroup;
+package lesson06.hundredthreads;
 
 /*Создать 100 потоков, каждый их которых выведет на экран свой номер и дождется, пока его прервут.*/
 
