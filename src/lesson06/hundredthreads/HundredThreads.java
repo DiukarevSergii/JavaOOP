@@ -12,11 +12,14 @@ public class HundredThreads {
                 CounterThread counterThread = new CounterThread(threadGroup, "MyThreadCounter " + i);
                 counterThread.start();
                 counterThread.join();
-                counterThread.interrupt();
-                if (counterThread.isInterrupted())
-                    System.out.println("Thread finished");
+                while (!counterThread.isInterrupted()) {
+                    Thread.sleep(100);
+                }
+                System.out.println("Thread finished");
             } catch (InterruptedException e) {
                 return;
+            } catch (IllegalThreadStateException e) {
+                ;
             }
         }
         Scanner scanner = new Scanner(System.in);
@@ -33,7 +36,7 @@ public class HundredThreads {
 
         @Override
         public void run() {
-            for (int i = 1; i < 6; i++)
+            for (int i = 1; i < 8; i++)
                 System.out.println(getName() + ": " + i);
             try {
                 Thread.sleep(1000);
