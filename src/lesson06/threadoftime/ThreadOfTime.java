@@ -16,7 +16,8 @@ public class ThreadOfTime {
             String stop = scanner.nextLine();
             if (stop.equalsIgnoreCase("stop"))
                 timer.interrupt();
-            System.out.println("Thread finished");
+            if (timer.isInterrupted())
+                System.out.println("Thread finished");
         } catch (Exception e) {
             ;
         }
@@ -31,7 +32,7 @@ public class ThreadOfTime {
                 try {
                     Thread.sleep(10000);
                 } catch (InterruptedException e) {
-                   return;
+                    return;
                 }
             }
         }
