@@ -12,7 +12,9 @@ public class HundredThreads {
                 CounterThread counterThread = new CounterThread(threadGroup, "MyThreadCounter " + i);
                 counterThread.start();
                 counterThread.join();
-                Thread.sleep(1000);
+                while (!counterThread.isInterrupted()) {
+                    Thread.sleep(100);
+                }
                 System.out.println("Thread finished");
             } catch (InterruptedException e) {
                 return;
