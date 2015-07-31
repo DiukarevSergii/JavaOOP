@@ -9,20 +9,15 @@ public class FiftyThreads {
     public static void main(String[] args) {
         ThreadGroup threadGroup = new ThreadGroup("Fifty Threads");
         for (int i = 0; i < 50; i++) {
-                CountFiftyThreads countFiftyThreads = new CountFiftyThreads(threadGroup, "Number of thread: " + i);
-                countFiftyThreads.start();
-//            try {
-//                Thread.sleep(10000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-
+            CountFiftyThreads countFiftyThreads = new CountFiftyThreads(threadGroup, "Number of thread: " + i);
+            countFiftyThreads.start();
         }
         Scanner scanner = new Scanner(System.in);
         String stop = scanner.nextLine();
-        if (stop.equalsIgnoreCase("stop"))
+        if (stop.equalsIgnoreCase("stop")) {
             threadGroup.interrupt();
-        System.out.println("Thread isInterrupt");
+            System.out.println("Thread isInterrupt");
+        }
     }
 
     private static final class CountFiftyThreads extends Thread {
@@ -34,7 +29,7 @@ public class FiftyThreads {
         @Override
         public void run() {
 
-            for (int i = 1; i < 40; i++) {
+            for (int i = 1; i < 400; i++) {
                 System.out.println(getName() + ": " + i);
                 try {
                     Thread.sleep(5000);
