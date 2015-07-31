@@ -1,20 +1,16 @@
 package lesson06.hundredthreads;
 
-/*Создать 100 потоков, каждый их которых выведет на экран свой номер и дождется, пока его прервут.*/
-
-import java.util.Scanner;
+/*Создать 100 потоков, каждый их которых выведет на экран свой номер и дождется своего завершения.*/
 
 public class HundredThreads {
     public static void main(String[] args) {
         ThreadGroup threadGroup = new ThreadGroup("MyThreadGroup");
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 101; i++) {
             try {
                 CounterThread counterThread = new CounterThread(threadGroup, "MyThreadCounter " + i);
                 counterThread.start();
                 counterThread.join();
-                while (!counterThread.isInterrupted()) {
-                    Thread.sleep(100);
-                }
+                Thread.sleep(100);
                 System.out.println("Thread finished");
             } catch (InterruptedException e) {
                 return;
@@ -22,10 +18,6 @@ public class HundredThreads {
                 ;
             }
         }
-        Scanner scanner = new Scanner(System.in);
-        String stop = scanner.nextLine();
-        if (stop.equalsIgnoreCase("stop"))
-            threadGroup.interrupt();
     }
 
     private static final class CounterThread extends Thread {
