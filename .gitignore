@@ -1,4 +1,3 @@
 JavaOOP.imp
 resources/hello.txt
-$ echo '.idea'
-$ git rm -r --cached .idea
+.idea
