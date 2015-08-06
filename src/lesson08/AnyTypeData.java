@@ -5,36 +5,33 @@ package lesson08;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class AnyTypeData {
 
-    private static class AnyType{
-        protected List<Integer> listInt = new ArrayList<>(20);
-        protected List<Long> listLong = new ArrayList<>(20);
+    public static void main(String[] args) {
+        AnyType<Integer> m1 = new AnyType<>();
+        AnyType<int[]> m2 = new AnyType<>();
 
+        int[] arr = {1, 2, 3};
+        m2.setValue(arr);
+        System.out.println(Arrays.toString(m2.getValue()));
 
-        public AnyType(int[] array){
-            for (int e : array)
-                listInt.add(e);
-            System.out.println(listInt.toString());
-
-
-        }
-        public AnyType(long [] array){
-            for (long e : array)
-                listLong.add(e);
-            System.out.println(listLong.toString());
-        }
-
+        int i = 11;
+        m1.setValue(i);
+        System.out.println(m1.getValue());
     }
 
-    public static void main(String[] args) {
-        int[]arrInt = {1,2,3,4};
-        AnyType anyType1 = new AnyType(arrInt);
-        long[]arrLong = {1,2,4};
-        AnyType anyType2 = new AnyType(arrLong);
-        System.out.println(anyType1.listInt.get(2));
-        System.out.println(anyType2.listLong.get(0));
+    public static class AnyType<E> {
+        protected E value;
+        private ArrayList<E> list;
+
+        public E getValue() {
+            return value;
+        }
+
+        public void setValue(E value) {
+            this.value = value;
+        }
     }
 }
+
