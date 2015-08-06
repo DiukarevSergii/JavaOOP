@@ -2,9 +2,6 @@ package lesson08;
 
 import java.util.ArrayList;
 
-/*Написать метод, который создаст список, положит в него 10 элементов, затем удалит первые два и последний, а
-затем выведет результат на экран.*/
-
 public class ToListWithRemove {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 7, 5, 6, 4, 2, 0};
