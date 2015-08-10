@@ -10,7 +10,7 @@ public class Replacement {
     private static final String filePath = Constants.FILE_PATH_LESSON05_FINDFILES;
 
     public static void main(String[] args) {
-        String fromFile = filePath + "/HELLO.txt";
+        String fromFile = filePath + "/hello.txt";
         String source = "";
 
         try (FileReader reader = new FileReader(fromFile)) {
