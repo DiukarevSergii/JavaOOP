@@ -23,7 +23,7 @@ public class AnyTypeData {
 
     public static class AnyType<E> {
         protected E value;
-        private ArrayList<E> list;
+//        private ArrayList<E> list;
 
         public E getValue() {
             return value;

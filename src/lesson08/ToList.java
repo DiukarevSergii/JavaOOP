@@ -16,4 +16,14 @@ public class ToList {
           list.add(arr[i]);
         return list;
     }
+
+    /* Написать метод для конвертации массива строк/чисел в список.
+         * */
+    public static <T> ArrayList<T> ConvertArrayToList(T[] a) {
+        ArrayList<T> temp = new ArrayList<T>();
+        for (T t : a)
+            temp.add(t);
+        return temp;
+
+    }
 }
