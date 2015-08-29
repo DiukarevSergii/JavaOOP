@@ -27,7 +27,7 @@ public class MyDrawPanel extends JPanel {
         GradientPaint gradient = new GradientPaint( 70,70, Color.getHSBColor(start,midle,end),
                                                     150,150, Color.getHSBColor(start1,midle1,end1));
         g2d.setPaint(gradient);
-        g2d.fillOval(70,70,300,300);
+        g2d.fillOval(60,70,300,300);
 
 
     }
