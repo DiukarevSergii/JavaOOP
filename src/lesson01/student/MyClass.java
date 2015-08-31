@@ -17,9 +17,9 @@ public class MyClass {
 
 		int n1 = sl.findSurname("Bobov");
 		System.out.println(sl.get(n1).getBirth());
-
+*/
 		int n2 = sl.findDate("08/02/1979");
-		System.out.println(sl.get(n2).getSurname());*/
+		System.out.println(sl.get(n2).getSurname());
 
         System.out.println("");
         System.out.println(sl.listtoString());
