@@ -8,6 +8,6 @@ public class MyException extends Exception {
 
     @Override
     public String getMessage() {
-        return "Exception of key or value. Please, string need a check.";
+        return "Exception of key or value. Please, string need a check." + super.getMessage();
     }
 }
