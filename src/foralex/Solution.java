@@ -1,0 +1,39 @@
+package foralex;
+
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+/* Файл в статическом блоке
+1. Инициализируй константу Constants.FILE_NAME полным путем к файлу с данными, который содержит несколько строк.
+2. В статическом блоке считай из файла с именем Constants.FILE_NAME все строки и добавь их по-отдельности в List lines.
+3. Закрой поток ввода методом close().
+*/
+
+public class Solution {
+    public static List<String> lines = new ArrayList<String>();
+
+    static {
+        try {
+            FileInputStream inputStream = new FileInputStream(Constants.FILE_NAME);
+            String str = "";
+            while (inputStream.available() > 0) {
+                String str1 = ((char) inputStream.read()) + "";
+                if (str1.equals("\n")) {
+                    lines.add(str);
+                    str = "";
+                }
+                else
+                    str += str1;
+            }
+            lines.add(str);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(lines);
+    }
+}
