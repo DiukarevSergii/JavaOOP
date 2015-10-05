@@ -22,7 +22,7 @@ public class LiftOff implements Runnable {
     public void run() {
         while (countDown-- > 0) {
             System.out.print(status());
-//            Thread.yield();
+            Thread.yield();
             try {
                 TimeUnit.MILLISECONDS.sleep(100); //новый стиль
             } catch (InterruptedException e) {
